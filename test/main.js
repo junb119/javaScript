@@ -1,19 +1,18 @@
-import abc from './getRandom'
+// 반복문 (for statement)
+// for (시작 조건; 종료 조건; 변화조건) {}
 
-// 조건문 (Switch statement)
+// for (let i = 0; i < 3; 1 ){
+//    console.log(i)
+// }
 
-const a = random()
+const ulEl = document.querySelector('ul')
 
-switch (a){
-  case 0:
-    console.log('a is 0')  
-    break
-  case 2:
-    console.log('a is 2')
-    break
-  case 4:
-    console.log('a is 4')
-    break
-  default:
-    console.log('rest....')
-}
+for (let i = 0; i < 10; i += 1){
+  const li = document.createElement('li') // createElement : 메모리상에 li 태그 생성
+  li.textContent = `list-${i + 1}`
+  if ( (i + 1 ) % 2 === 0) { // i가 짝수인 경우에만
+    li.addEventListener('click', function(){
+      console.log(li.textContent)
+    })
+  }
+  ulEl.appendChild(li) // ul태그에 li태그 삽입
