@@ -1,16 +1,11 @@
-// 형 변환(Type conversion)
-
-a = 1
-b ='1'
-
-console.log(a == b) // 동등 연산자. 거의 안씀
-
-// Truthy(참 같은 값)
-// true, {}, [] ,1, 2, 'false', -12, '3.14'....
-
-// Falsy(거짓 같은 값)
-// false, '', null, undefined, 0, -0, NaN
-
-if (NaN) {
-  console.log(123)
+// 함수 복습
+function sum(x,y) {
+  return x + y
 }
+a = sum(1,3)
+b = sum(4,12)
+console.log(a)
+console.log(b)
+
+// 함수를 여러번 실행시키기보다 
+// 함수를 실행한 결과를 변수에 넣어 재활용하는게 메모리값을 아낄 수 있다.
