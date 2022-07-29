@@ -1,10 +1,20 @@
-// arguments
-// arguments 객체는 매개변수를 지정하지 않아도 함수 안에서 언제든지 사용 가능
+// 화살표 함수
+// () => {}  vs function () {}
 
+const double = function(x) {
+  return x * 2
+}
+console.log('double :', double(7))
 
-function sum () {
-  console.log(arguments)
-  return arguments[0] + arguments[1]
+// 익명함수이며 return문이 단순하면 축약가능
+let doubleArrow = (x) => {
+  return x * 2  
 }
 
-console.log(sum(7,3))
+// 더 축약 가능(괄호,중괄호 삭제)
+doubleArrow = x => x * 2  
+console.log('doubleArrow', doubleArrow(7))
+
+// 객체 데이터를 사용할 때는 소괄호로 한번 감싸고 리턴 가능
+let doubleArrow2 = x => ({ name: 'Heropy'  }) 
+console.log('doubleArrow2', doubleArrow2(7))
