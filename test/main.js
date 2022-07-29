@@ -1,8 +1,8 @@
 // 논리 연산자 (logical operator)
 console.log('논리 연산자')
-a = 1 === 1
-b = 'ab' === 'ab'
-c = true
+const a = 1 === 1
+const b = 'ab' === 'ab'
+const c = true
 
 console.log(a)
 console.log(b)
