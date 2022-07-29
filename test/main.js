@@ -1,20 +1,26 @@
-// 화살표 함수
-// () => {}  vs function () {}
-
-const double = function(x) {
-  return x * 2
+// 즉시실행함수
+// IIFE, Immediately-invoked Function Expression
+const a = 7
+function double() {
+  console.log(a * 2)
 }
-console.log('double :', double(7))
+double();  // 즉시 실행함수 쓸 경우 ;으로 구분이 필요함
 
-// 익명함수이며 return문이 단순하면 축약가능
-let doubleArrow = (x) => {
-  return x * 2  
-}
 
-// 더 축약 가능(괄호,중괄호 삭제)
-doubleArrow = x => x * 2  
-console.log('doubleArrow', doubleArrow(7))
+// 굳이 이렇게 안하고 한번만 쓸거면
 
-// 객체 데이터를 사용할 때는 소괄호로 한번 감싸고 리턴 가능
-let doubleArrow2 = x => ({ name: 'Heropy'  }) 
-console.log('doubleArrow2', doubleArrow2(7))
+
+// 즉시실행함수 첫번째
+// 익명함수를 소괄호로 묶은 다음 소괄호를 한번더 열고 닫으면
+// 함수 선언과 호출을 일회성으로 사용가능
+(function () {
+  console.log(a * 2)
+})();
+
+// 즉시실행함수 두번째
+// 함수를 묶는 소괄호 안에 소괄호를 한번 더 넣음
+(function () {
+  console.log(a * 2)
+}())
+
+// 위처럼 실행되고 더이상 쓰임이 없는 함수라면 즉시실행함수로 한번 실행하고 만다
