@@ -1,22 +1,33 @@
-/* ES6 이전 클래스 문법
-function User(first, last) {
-  this.firstName = first
-  this.lastName = last
-}
-User.prototype.getFullName = function () {
-  return `${this.firstName} ${this.lastName}`
-} */
-
-//---------->
- 
-// ES6 클래스 문법
-
-class Use {
-  constructor(first, last) {
-    this.firstName = first
-    this.lastName = last
+//  상속(확장)
+class Vehicle {
+  constructor (name , wheel) {
+    this.name = name
+    this.wheel = wheel
   }
-  getFullName() {
-    return `${this.firstName} ${this.lastName}`
+} 
+const myVehicle = new Vehicle('운송수단', 2) // Vehicle 객체 생성
+console.log(myVehicle)
+
+class Bicycle extends Vehicle { // Bicycle 클래스 정의 
+  constructor(name, wheel) {
+    super(name, wheel) // Vehicle 클래스 상속
   }
 }
+
+const myBicycle =  new Bicycle('삼천리', 2)
+const daughtersBicycle = new Bicycle('세발',3)
+console.log(myBicycle)
+console.log(daughtersBicycle)
+
+class Cal extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license // Vehicle 클래스 상속 후 확장
+  }
+}
+
+const myCar =  new Cal('벤츠', 4 , true)
+const daughtersCar = new Cal('포르쉐', 4, false)
+
+console.log(myCar)
+console.log(daughtersCar)
