@@ -1,33 +1,22 @@
-//  상속(확장)
-class Vehicle {
-  constructor (name , wheel) {
-    this.name = name
-    this.wheel = wheel
-  }
-} 
-const myVehicle = new Vehicle('운송수단', 2) // Vehicle 객체 생성
-console.log(myVehicle)
+// js 데이터
+// // string
 
-class Bicycle extends Vehicle { // Bicycle 클래스 정의 
-  constructor(name, wheel) {
-    super(name, wheel) // Vehicle 클래스 상속
-  }
-}
+// indexof()
+// 호출한 String 객체에서 주어진 값과 일치하는 첫 번째 인덱스 반환
+// 일치하는 값이 없으면 -1 반환
+let str = 'hellow world'
+console.log(str.indexOf('hero ') !== -1 )
 
-const myBicycle =  new Bicycle('삼천리', 2)
-const daughtersBicycle = new Bicycle('세발',3)
-console.log(myBicycle)
-console.log(daughtersBicycle)
+// slice() : 문자열 일부 추출하면서 새로운 문자열 반환
+console.log(str.slice(0, 5))
 
-class Cal extends Vehicle {
-  constructor(name, wheel, license) {
-    super(name, wheel)
-    this.license = license // Vehicle 클래스 상속 후 확장
-  }
-}
+// replace()
+console.log(str.replace('hel', 'vv'))
 
-const myCar =  new Cal('벤츠', 4 , true)
-const daughtersCar = new Cal('포르쉐', 4, false)
+// match()
+str = 'emfowkd@naver.com'
+console.log(str.match(/.+(?=@)/)[0]) 
 
-console.log(myCar)
-console.log(daughtersCar)
+// trim()
+str= '     hellow   '
+console.log(str.trim()) // 앞뒤 공백 지우기
