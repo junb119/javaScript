@@ -1,12 +1,22 @@
-// ES6 Classes
-const heropy = {
-  name: 'Heropy2',
-  normal() { // = normal : function() {}
-    console.log(this.name)
-  },
-  arrow : () => {
-    console.log(this.name)
+/* ES6 이전 클래스 문법
+function User(first, last) {
+  this.firstName = first
+  this.lastName = last
+}
+User.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`
+} */
+
+//---------->
+ 
+// ES6 클래스 문법
+
+class Use {
+  constructor(first, last) {
+    this.firstName = first
+    this.lastName = last
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
   }
 }
-heropy.normal()
-heropy.arrow()
