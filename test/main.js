@@ -1,9 +1,22 @@
-// Math
-// console.log('Math')
-// Math.abs() // 절대값 반환
-// Math.min() // 최솟값
-// Math.max() // 최댓값
-// Math.ceil() // 올림
-// Math.floor() // 내림
-// Math.round() // 반올림
-// Math.random() //  랜던값 반환
+// toFixed : 소수점 기준 자르기, String으로 반환
+
+const pi = 3.14238927839123
+console.log(pi)
+
+const str = pi.toFixed(2)
+console.log(str)
+console.log(typeof str)
+
+
+// parseInt, parseFloat : 형변환
+
+const integer = parseInt(str)
+const float = parseFloat(str)
+console.log(integer)
+console.log(float) 
+console.log(typeof integer, typeof float)
+
+const ll = 3.14238927839123
+const dd = parseInt(pi.toFixed(2))
+console.log(dd)
+
