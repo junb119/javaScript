@@ -1,38 +1,55 @@
-// .includes() 메소드 : 인수로 사용된 데이터 포함 여부 반환
+// prototype 가 붙어있지 않은 메소드 -> 정적메소드(static mathod)
+// 
 
-let array1 = [1, 2, 3, 4, 5]
-let array2 = ['apple', 'banana', 'cherry']
+/* Object.assign 메소드 (target, sources(1), sources(2)....)
+ : 열거할 수 있는 하나 이상의 출처 객체로부터 대상 객체로 속성을 복사할 때 사용. 대상 객체를 반환
+ Object 전역개체의 prototype으로 만들어져있는게 아니므로 일반적인 객체 데이터에는 사용할 수 없음
+ ex)
+  const userAge = { 
+  }
+  userAge.assign(target,source)  ==> 불가
+  Object.assign(target,source) ==> 가능
+*/
 
-const a = array1.includes(3) // 포함 >>> true
-console.log(a)
-const b = array1.includes('vvd') // 포함X false
-console.log(b)
+const userAge = {
+  //  key: value
+  name : 'Heropy',
+  age : 85
+}
 
-// .push() : 배열 맨 뒤에 인수로 사용된 데이터 삽입
-// .unshift() : 배열 맨 앞에 인수로 사용된 데이터 삽입
-// 원본 수정주의
+const userEmail = {
+  name :'Heropy',
+  email : 'thesecond@gmail.com'
+}
 
-array1.push(5)  
-console.log(array1)
+const target = Object.assign(userAge, userEmail) // userAge에 userEmail 내용을 합침
+console.log('target :', target)
+console.log('userAge :' , userAge)
+console.log('target === userAge :' , target === userAge) // >>> true 
 
-array1.unshift(0)  // 
-console.log(array1)
+a = {k : 123}
+b = {k : 123}
+console.log(a === b) // >>> false 반환
 
-// .reverse() : 배열의 순서뒤집기
-// 원본 수정주의
+  // target과 userAge는 객체데이터, 메모리에서 참조만 하는 참조형 데이터이기에 같은 곳을 바라봄으로 true가 나오고
+  // a와 b는 메모리에 원시형 데이터 이기에 false가 나옴
+  // 데이터 불변성 참조
 
-array1.reverse()
-array2.reverse()
 
-console.log(array1)
-console.log(array2)
+const userAge2 = {
+  //  key: value
+  name : 'Heropy',
+  age : 85
+}
 
-// .splice() : (해당 인덱스, 삭제할 개수, 삽입할 데이터)
-// 원본 수정 주의
+const userEmail2 = {
+  name :'Heropy',
+  email : 'thesecond@gmail.com'
+}
 
-array1.splice(2,1) // 2, 1: index, 1개  : 해당 인덱스번호부터 1개 삭제
-console.log(array1)
-array1.splice(2,0,999) // 2,0,999 : 인덱스 2에서 하나도 지우지말고 999를 해당 인덱스에 끼워놓음
-console.log(array1)
-array1.splice(2,1,66) // 2,0,66 : 인덱스 2에서 1개를 지우고 66을 해당 인덱스에 끼워놓음
-console.log(array1)
+const target2 = Object.assign({}, userAge2, userEmail2) 
+// assign메소드를 이용해 두 데이터를 합친 새로운 데이터를 만들고싶다면 위와 같이 target 속성에 빈 데이터를 넣으면 됨.
+
+console.log(target2)
+console.log(userAge)
+console.log(target === userAge) // false
