@@ -1,21 +1,21 @@
-import _ from 'lodash'
+// 가져오기
 
-// 깊은 복사
-const user = {
-  name: 'heropy',
-  age: 85,
-  emails: ['emfowkd@gmail.com']
-}
+// main.js
+import _ from 'lodash' // From'node_modules'!
 
-const copyUser = _.cloneDeep(user) // lodash를 이용한 깊은 복사
-console.log(copyUser === user)
+// 이름이 없는 모듈 가져오기
+// 가져올 때 이름을 아무렇게나 지정가능
+import anyName from './getType' // getType.js
 
-user.age = 22
-console.log('user', user) // age : 22
-console.log('copyUser', copyUser) // age: 85
+// 이름이 지정된 모듈 가져오기
+import {random, user as heropy} from './getRandom' 
+  // 1. 가져올 때 중괄호로 묶기
+  // 2. 여러개를 가져올 수 있음
+  // 3. 가져온 모듈의 이름을 as를 이용해 바꿀 수 있음
+	// import * as R from './getRandom' : getRandom.js 에서 모든 모듈을 R이라는 이름으로 가져오기
 
-user.emails.push('neo@zill.com')
-console.log(user.emails === copyUser.emails) // false
-console.log('user', user)
-console.log('copyUser', copyUser) 
-
+console.log(_.camelCase('the hello world'))
+console.log(getType([1,2,3]))
+// console.log(getRandom(), getRandom())
+console.log(random)
+console.log(user)
