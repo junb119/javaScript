@@ -1,15 +1,17 @@
-// 전개 연산자 : 배열 데이터를 쉼표로 구분하는 각각의 아이템으로 나열
+// 데이터 불변성(Immutability)
 
-const fruits = ['apple', 'banana', 'cherry', 'orange']
-console.log(fruits)
-console.log(...fruits) // 전개 연산자
-// = console.log('apple', 'banana', 'cherry')
+// 원시 데이터 : string,number, boolean, undefined, null
+// 원시데이터는 메모리에 한번 올라가있으면 같은 데이터를 할당했을 때 새로운 메모리 주소로 지정하는게 아니라
+// 먼저 지정된 메모리 주소를 다시 참조한다 ( = 같은 곳을 다시 바라본다 = 불변성)
 
-function toObject(a,b,...c) { // 객체 데이터로 변환
-  return {
-    a: a,  // --> a,         변수와 속성의 이름이 같으면 하나로 축약할 수 있음
-    b: b,  // --> b,
-    c: c   // --> c      c는 rest parameter(나머지 매개변수)
-  }  
-}
-console.log(toObject(...fruits))
+let a = 1
+let b = 4
+console.log(a,b,a === b)
+b = a
+console.log(a,b,a === b)
+a = 7
+console.log(a,b,a === b)
+c = 1
+console.log(b,c,b === c)
+
+
