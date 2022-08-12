@@ -1,15 +1,21 @@
-// 참조형 데이터 : Object, Array, Function
-// 새로운 데이터를 만들 때마다 새로운 메모리 주소에 할당된다.(생긴 게 같아도 바라보는 곳이 다르다 = 가변성)
+// 얕은 복사
+const user = {
+  name: 'heropy',
+  age: 85,
+  emails: ['emfowkd@gmail.com']
+}
 
-let a = { k : 1}
-let b = { k : 1}
-console.log(a,b,a === b) // {k: 1} , {k: 1} , false
-a.k = 7
-b = a // 같은 주소를 참조
-console.log(a,b, a === b) // {k: 7} , {k: 7} , true
-a.k = 2
-console.log(a, b, a === b) // {k: 2} , {k: 2} , true
-let c = b
-console.log(a, b, c, a === c) // {k: 2} , {k: 2} , true
-a.k = 9
-console.log(a,b,c, a === c) // {k: 9}, {k: 9} , true
+
+// const copyUser = Object.assingn({}, user ) // assign 정적메소드를 이용한 얕은 복사
+const copyUser = {...user} // 전개 연산자를 이용한 얕은 복사
+console.log(copyUser === user)
+
+user.age == 22
+console.log('user', user) // age : 22
+console.log('copyUser', copyUser) // age: 85
+
+user.emails.push('neo@zill.com') // user.emails = 배열데이터 = 참조형 데이터 = 같은 주소 참조
+console.log(user.emails === copyUser.emails) // true
+console.log('user', user)
+console.log('copyUser', copyUser) 
+
