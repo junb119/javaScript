@@ -1,21 +1,53 @@
-// 가져오기
+// lodash 유용한 메소드 사용법
 
-// main.js
-import _ from 'lodash' // From'node_modules'!
 
-// 이름이 없는 모듈 가져오기
-// 가져올 때 이름을 아무렇게나 지정가능
-import anyName from './getType' // getType.js
+import _ from 'lodash'
 
-// 이름이 지정된 모듈 가져오기
-import {random, user as heropy} from './getRandom' 
-  // 1. 가져올 때 중괄호로 묶기
-  // 2. 여러개를 가져올 수 있음
-  // 3. 가져온 모듈의 이름을 as를 이용해 바꿀 수 있음
-	// import * as R from './getRandom' : getRandom.js 에서 모든 모듈을 R이라는 이름으로 가져오기
+const usersA = [
+	{ userId: '1', name:'heropy'},
+	{ userId: '2', name:'Neo'}
+]
+const usersB= [
+	{ userId: '1', name:'heropy'},
+	{ userId: '3', name:'Amy'}
+]
 
-console.log(_.camelCase('the hello world'))
-console.log(getType([1,2,3]))
-// console.log(getRandom(), getRandom())
-console.log(random)
-console.log(user)
+const usersC = usersA.concat(usersB)  // concat : 합치기
+console.log('concat', usersC) 
+/*
+concat을 하면 
+
+0 : { userId: '1', name:'heropy'},
+1 : { userId: '2', name:'Neo'}
+2 : { userId: '1', name:'heropy'},
+3 : { userId: '3', name:'Amy'}
+다 합쳐져서 중복되는 데이터 발생
+*/
+
+
+
+// lodash의 uniqBy 사용 
+
+// uniqBy(대상 배열 , '구분할속성') : 인수로 사용된 배열 데이터의 중복값을 제외한 배열 반환
+console.log('uniqBy', _.uniqBy(usersC, 'userId'))
+
+/*
+0 : { userId: '1', name:'heropy'},
+1 : { userId: '2', name:'Neo'}
+2 : { userId: '3', name:'Amy'}
+*/
+
+
+
+
+// lodash의unionBy 사용
+// 병합 전이라면 unionBy를 통해 중복없이 합치기 가능
+// unionBy(병합할배열1, 병합할배열2, '구분할속성')
+const usersD = _.unionBy(usersA, usersB, 'userId')
+console.log('unionBy',usersD)
+
+/*
+0 : { userId: '1', name:'heropy'},
+1 : { userId: '2', name:'Neo'}
+2 : { userId: '3', name:'Amy'}
+*/
