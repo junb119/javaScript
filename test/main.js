@@ -1,53 +1,39 @@
-// lodash 유용한 메소드 사용법
-
+// find, findIndex , remove
 
 import _ from 'lodash'
 
-const usersA = [
+const users = [
 	{ userId: '1', name:'heropy'},
-	{ userId: '2', name:'Neo'}
+	{ userId: '2', name:'Neo'},
+  { userId: '3', name:'Amy'},
+  { userId: '4', name:'Evan'},
+  { userId: '5', name:'Lewis'}
 ]
-const usersB= [
-	{ userId: '1', name:'heropy'},
-	{ userId: '3', name:'Amy'}
-]
-
-const usersC = usersA.concat(usersB)  // concat : 합치기
-console.log('concat', usersC) 
-/*
-concat을 하면 
-
-0 : { userId: '1', name:'heropy'},
-1 : { userId: '2', name:'Neo'}
-2 : { userId: '1', name:'heropy'},
-3 : { userId: '3', name:'Amy'}
-다 합쳐져서 중복되는 데이터 발생
-*/
 
 
-
-// lodash의 uniqBy 사용 
-
-// uniqBy(대상 배열 , '구분할속성') : 인수로 사용된 배열 데이터의 중복값을 제외한 배열 반환
-console.log('uniqBy', _.uniqBy(usersC, 'userId'))
-
-/*
-0 : { userId: '1', name:'heropy'},
-1 : { userId: '2', name:'Neo'}
-2 : { userId: '3', name:'Amy'}
-*/
+// find(배열 , 찾을 객체 ) : 배열에서 특정 객체 찾기
+const foundUser= _.find(users, {name: 'Amy'})
+  // 데이터가 name:'Amy'인 객체를 찾겠다.
+  // >>> {userId: '3', name: 'Amy'}
 
 
+// findIndex(배열 , 찾을 객체 ) : 배열에서 특정 객체의 인덱스 찾기
+const foundUserINdex = _.findIndex(users, {name : 'Amy'})
+  // 데이터가 name:'Amy'인 객체의 인덱스를 찾겠다.
+  // >>> 2
+console.log(foundUser)
+console.log(foundUserINdex)
 
 
-// lodash의unionBy 사용
-// 병합 전이라면 unionBy를 통해 중복없이 합치기 가능
-// unionBy(병합할배열1, 병합할배열2, '구분할속성')
-const usersD = _.unionBy(usersA, usersB, 'userId')
-console.log('unionBy',usersD)
+// remove(배열 , 제거할 객체 ) : 배열에서 특정 객체를 삭제(원본에 반영)
+_.remove(users, {name: 'heropy'})
+  // 데이터가 name:'heropy'인 객체를 제거하겠다.
+console.log(users)
 
-/*
-0 : { userId: '1', name:'heropy'},
-1 : { userId: '2', name:'Neo'}
-2 : { userId: '3', name:'Amy'}
+/* 
+>>>
+  { userId: '2', name:'Neo'},
+  { userId: '3', name:'Amy'},
+  { userId: '4', name:'Evan'},
+  { userId: '5', name:'Lewis'}
 */
