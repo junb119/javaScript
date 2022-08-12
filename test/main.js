@@ -1,25 +1,15 @@
-// 구조 분해 할당(비구조화 할당)
+// 전개 연산자 : 배열 데이터를 쉼표로 구분하는 각각의 아이템으로 나열
 
-const user = {
-  name: 'heropy',
-  age : 65,
-  email :'emfowkd@naver.com'
-  // address :'usa'
+const fruits = ['apple', 'banana', 'cherry', 'orange']
+console.log(fruits)
+console.log(...fruits) // 전개 연산자
+// = console.log('apple', 'banana', 'cherry')
+
+function toObject(a,b,...c) { // 객체 데이터로 변환
+  return {
+    a: a,  // --> a,         변수와 속성의 이름이 같으면 하나로 축약할 수 있음
+    b: b,  // --> b,
+    c: c   // --> c      c는 rest parameter(나머지 매개변수)
+  }  
 }
-
-// user의 원소를 각각의 변수에 할당가능.
-// 해당 원소가 없을시 기본값 지정 가능
-const { name :heropy , age, email, address = 'korea' } = user
-// name 이란 property를 heropy로 바꿔서 사용가능
-// E.g, user.address
-
-
-console.log(`사용자의 이름은 ${heropy} 입니다.`)
-console.log(`${name}의 나이는 ${age}세 입니다.`)
-console.log(`${name}의 이메일 주소는 ${user.email}입니다.`)
-console.log(address)
-
-// 비 구조화 할당
-const fruits = ['Apple', 'Banana', 'Cherry']
-const [, , b] = fruits
-console.log(b) // 'Cherry'
+console.log(toObject(...fruits))
