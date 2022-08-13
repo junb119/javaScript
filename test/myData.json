@@ -1,0 +1,9 @@
+{
+  "_comment" : "json문법" ,
+  "string": "heropy",
+  "number": 123,
+  "boolean" : true,
+  "null" : null,
+  "object" : {},
+  "array" : []
+}

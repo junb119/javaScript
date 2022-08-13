@@ -1,31 +1,22 @@
-// json 문법 (javascript object Notation)
-// 자바스크립트의 객체 표기법
-// JSON 은 하나의 문자데이터 포맷, js로 해석되는 도중에 객체데이터 처럼 사용됨
-// json 문자열은 큰따옴표("") 만 사용 가능
-// 하나의 json파일은 하나의 데이터이므로 두 개의 데이터를 명시할 수 없다
+/*
+localStorage의 데이터는 만료되지 않고 sessionStorage의 데이터는 페이지 세션이 끝날 때, 
+즉 페이지를 닫을 때 사라지는 점이 다릅니다. 
+("사생활 보호 모드" 중 생성한 localStorage 데이터는 마지막 "사생활 보호" 탭이 닫힐 때 지워집니다.)
+*/
 
-import myData from './myData.json'
 
-console.log(myData)
+// 아래 코드는 현재 도메인의 로컬 Storage 객체에 접근한 후, 
+// Storage.setItem() (en-US)을 사용해 항목 하나를 추가.
+localStorage.setItem('myCat', 'Tom');
 
-const user = {
-  name: 'heropy',
-  age: 85, 
-  emails: [
-    'emfowkd@gmail.com',
-    'neo@zillinks.com'
-  ]
-}
 
-console.log('user', user)
+// 위에서 추가한 localStorage 항목 읽기
+const cat = localStorage.getItem('myCat');
 
-// JSON : 전역개체
-// JSON.stringify() : json포맷으로(문자데이터로) 만들어줌
-const str = JSON.stringify(user)
-console.log('str', str)
-console.log(typeof str)
 
-// JSON.parse() js의 객체데이터로 만들어줌
-const obj = JSON.parse(str)
-console.log('obj', obj)
-console.log(typeof obj)
+// 위에서 추가한 localStorage 항목 제거
+localStorage.removeItem('myCat');
+
+
+// localStorage 항목의 전체 제거 구문
+localStorage.clear();
