@@ -1,22 +1,38 @@
+const user = {
+  name: 'heropy',
+  age : 85,
+  emails :[
+    'thesecon@gmail.com',
+    'neo@zillinks.com'
+  ]
+}
+
+// localStorage.setItem('user', JSON.stringify(user) ) // 저장하기
+// console.log(JSON.parse(localStorage.getItem('user'))) // 가져오기
+// localStorage.removeItem('user') // 제거하기
+
+// user의 데이터를 json으로 문자데이터화해서 localstorage에 key, value값으로 지정
+
+
+
+
+console.log(JSON.parse(localStorage.getItem('user')))
 /*
-localStorage의 데이터는 만료되지 않고 sessionStorage의 데이터는 페이지 세션이 끝날 때, 
-즉 페이지를 닫을 때 사라지는 점이 다릅니다. 
-("사생활 보호 모드" 중 생성한 localStorage 데이터는 마지막 "사생활 보호" 탭이 닫힐 때 지워집니다.)
+localstorage의 데이터를 받아와서 json.parse를 통해 객체화 시킨다음 콘솔에서 출력
 */
 
 
-// 아래 코드는 현재 도메인의 로컬 Storage 객체에 접근한 후, 
-// Storage.setItem() (en-US)을 사용해 항목 하나를 추가.
-localStorage.setItem('myCat', 'Tom');
 
 
-// 위에서 추가한 localStorage 항목 읽기
-const cat = localStorage.getItem('myCat');
 
+// localstorage의 데이터를 받아서 내용을 수정한다음 
+// 다시 localstorage에 반영하기
 
-// 위에서 추가한 localStorage 항목 제거
-localStorage.removeItem('myCat');
+const str = localStorage.getItem('user')
+const obj = JSON.parse(str)
+obj.age = 22
+console.log(obj)
+localStorage.setItem('user', JSON.stringify(obj))\
 
-
-// localStorage 항목의 전체 제거 구문
-localStorage.clear();
+// 쉽게 다루기 위한 패키지
+// lowdb
