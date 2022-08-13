@@ -1,39 +1,31 @@
-// find, findIndex , remove
+// json 문법 (javascript object Notation)
+// 자바스크립트의 객체 표기법
+// JSON 은 하나의 문자데이터 포맷, js로 해석되는 도중에 객체데이터 처럼 사용됨
+// json 문자열은 큰따옴표("") 만 사용 가능
+// 하나의 json파일은 하나의 데이터이므로 두 개의 데이터를 명시할 수 없다
 
-import _ from 'lodash'
+import myData from './myData.json'
 
-const users = [
-	{ userId: '1', name:'heropy'},
-	{ userId: '2', name:'Neo'},
-  { userId: '3', name:'Amy'},
-  { userId: '4', name:'Evan'},
-  { userId: '5', name:'Lewis'}
-]
+console.log(myData)
 
+const user = {
+  name: 'heropy',
+  age: 85, 
+  emails: [
+    'emfowkd@gmail.com',
+    'neo@zillinks.com'
+  ]
+}
 
-// find(배열 , 찾을 객체 ) : 배열에서 특정 객체 찾기
-const foundUser= _.find(users, {name: 'Amy'})
-  // 데이터가 name:'Amy'인 객체를 찾겠다.
-  // >>> {userId: '3', name: 'Amy'}
+console.log('user', user)
 
+// JSON : 전역개체
+// JSON.stringify() : json포맷으로(문자데이터로) 만들어줌
+const str = JSON.stringify(user)
+console.log('str', str)
+console.log(typeof str)
 
-// findIndex(배열 , 찾을 객체 ) : 배열에서 특정 객체의 인덱스 찾기
-const foundUserINdex = _.findIndex(users, {name : 'Amy'})
-  // 데이터가 name:'Amy'인 객체의 인덱스를 찾겠다.
-  // >>> 2
-console.log(foundUser)
-console.log(foundUserINdex)
-
-
-// remove(배열 , 제거할 객체 ) : 배열에서 특정 객체를 삭제(원본에 반영)
-_.remove(users, {name: 'heropy'})
-  // 데이터가 name:'heropy'인 객체를 제거하겠다.
-console.log(users)
-
-/* 
->>>
-  { userId: '2', name:'Neo'},
-  { userId: '3', name:'Amy'},
-  { userId: '4', name:'Evan'},
-  { userId: '5', name:'Lewis'}
-*/
+// JSON.parse() js의 객체데이터로 만들어줌
+const obj = JSON.parse(str)
+console.log('obj', obj)
+console.log(typeof obj)
