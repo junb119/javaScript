@@ -4,24 +4,40 @@ thesecon@gmail.com
 https://www.omdbapi.com/?apikey=7035c60c&s=frozen
 The quick brown fox jumps over the lazy dog.
 abbcccdddd
+http://localhost:1234
+동해물과_백두산이 마르고 닳도록
 `
-// 생성자 방식
-const regexp = new RegExp('the', '') // 정규표현식 생성
-const regexp2 = new RegExp('the', 'g') // 하나가 아닌 모든 문자 일치(global)
-const regexp3 = new RegExp('the', 'gi') // 대소문자 구분 안함
-console.log(str.match(regexp))
-console.log(str.match(regexp2))
-console.log(str.match(regexp3))
+// 플래그
 
-// 리터럴 방식
-const regexp4 = /fox/gi
-console.log(str.match(regexp4))
+console.log(str.match(/the/)) // 객체로 반환
 
-// 메소드
+console.log(str.match(/the/g)) // [the, the]
 
-  // test : 찾는 정규표현식이 있는지
-console.log(regexp4.test(str)) // true
+console.log(str.match(/the/gi)) // [the, The, the]
 
-  // replace : 찾은 정규표현식을 대체
-console.log(str.replace(regexp4, 'AAA')) // 정규표현식을 'AAA'로 대체
-console.log(str)
+console.log(str.match(/\.$/gim)) // 각 줄마다 마침표 확인
+// $: $의 앞에 단어로 해당하는 줄이 끝나는 부분을 찾음
+
+console.log(
+  str.match(/\bf\w{1,}\b/g) // f로 시작하는 단어 찾기
+)
+
+console.log(
+  str.match(/\d{1,}/g) // 한개이상 숫자 배열
+)
+
+
+const h = `     the hello  world    !`
+console.log(
+  h.replace(/\s/g, '')
+)  // 공백 제거
+
+
+console.log(
+  str.match(/.{1,}(?=@)/g)
+) // @를 기준으로 앞쪽 일치 ( = id 찾기)
+
+console.log(
+  str.match(/(?<=@).{1,}/g)
+) // @를 기준으로 뒤쪽 일치 (= 메일 주소 찾기)
+
